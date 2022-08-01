@@ -1,0 +1,12 @@
+coffee sizes:
+id      name
+1       small
+2       medium
+3       large
+
+coffee types:
+id      name        desc
+1       Arabica     Often grown in high alitudes, the Arabica bean tends to have a smoother, sweeter taste,with flavour notes of sugar and chocolate.
+2       Robusta     Grown in hot and humid weather, the Robusta beans gives an earthy and bitter taste with a peanutty aftertaste.
+3       Liberica    Often found in the humid, lowland tropics, the Liberica beans give the common coffee enthusiast a smokey and chocolatey taste. 
+4       Excelsa     The Excelsa bean comes in strong with the tart,fruity,dark, mysterious taste. Great for starting the day. 
