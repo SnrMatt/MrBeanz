@@ -12,12 +12,5 @@ const client = new pg.Pool({
 });
 
 module.exports = {
-  query: function (text, values, cb) {
-    client.connect((err, client, done) => {
-      client.query(text, values, (err, res) => {
-        done();
-        cb(err, res);
-      });
-    });
-  },
+  query: (text, params) => client.query(text, params),
 };
