@@ -1,7 +1,10 @@
 const Router = require("express-promise-router");
 const router = new Router();
-const cofeeController = require("../controllers/coffee");
+const coffeeController = require("../controllers/coffee");
 
-router.post("/api/coffee", cofeeController.createCoffee);
-
+router.get("/api/coffee", coffeeController.getAllCoffee);
+router.post("/api/coffee", coffeeController.createCoffee);
+router.delete("/api/coffee", coffeeController.deleteAllCoffee);
+router.get("/api/coffee/:name", coffeeController.getCoffee);
+router.delete("/api/coffee/:id");
 module.exports = router;
