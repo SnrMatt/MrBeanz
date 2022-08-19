@@ -69,7 +69,7 @@ const loginUser = async (req, res) => {
     //Generate JWT TOKEN
 
     let token = jwt.sign(
-      { context: { userID: user.id } },
+      { context: { userID: user.id, role:["user"] } },
       process.env.SECRET_KEY,
       { expiresIn: "2h" }
     );
@@ -79,7 +79,12 @@ const loginUser = async (req, res) => {
   }
 };
 
+const updateUserAddress = (req, res) => {
+  res.send({ message: "Updated address" });
+};
+
 module.exports = {
   createUser,
   loginUser,
+  updateUserAddress,
 };
