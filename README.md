@@ -2,7 +2,7 @@
 Coffee bean ecommerce demo
 
 ## Relational Structure for Database
-![image](https://user-images.githubusercontent.com/80737126/185534606-25c57b63-a8a9-410f-8fea-acd05b291095.png)
+
 
 ## REST API
  METHOD (Route) - (Function)
