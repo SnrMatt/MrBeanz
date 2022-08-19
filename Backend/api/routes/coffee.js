@@ -6,5 +6,5 @@ router.get("/api/coffee", coffeeController.getAllCoffee);
 router.post("/api/coffee", coffeeController.createCoffee);
 router.delete("/api/coffee", coffeeController.deleteAllCoffee);
 router.get("/api/coffee/:name", coffeeController.getCoffee);
-router.delete("/api/coffee/:id");
+router.delete("/api/coffee/:id", coffeeController.deleteCoffee);
 module.exports = router;

@@ -3,6 +3,7 @@ const app = express();
 const server = require("http").createServer(app);
 const userRoutes = require("./api/routes/users");
 const coffeeRoutes = require("./api/routes/coffee");
+require("dotenv").config();
 /**
  * Middlewares
  */

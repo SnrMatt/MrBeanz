@@ -91,4 +91,23 @@ const deleteAllCoffee = async (req, res) => {
   await query("ALTER SEQUENCE coffee_product_id_seq RESTART WITH 1");
   res.json({ message: "All coffee products have been REMOVED!" });
 };
-module.exports = { createCoffee, getAllCoffee, getCoffee, deleteAllCoffee };
+
+const deleteCoffee = async (req, res) => {
+  let { id } = req.params;
+  let coffee_name = await query(
+    "SELECT name FROM coffee_product WHERE id = $1",
+    [id]
+  );
+  await query("DELETE FROM coffee_attributes WHERE coffee_id = $1", [id]);
+  await query("DELETE FROM coffee_product where id = $1", [id]);
+  res.json({
+    message: `${coffee_name.rows[0].name} has been removed from the database.`,
+  });
+};
+module.exports = {
+  createCoffee,
+  getAllCoffee,
+  getCoffee,
+  deleteAllCoffee,
+  deleteCoffee,
+};
