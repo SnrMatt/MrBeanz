@@ -12,4 +12,6 @@ Coffee bean ecommerce demo
   - [X] DELETE "/api/coffee" - (Dangerous!) Removes every product entry in the database.
   - [X] GET "/api/coffee/:name" - Returns specific product attributes (id, name,desc, price,qty,sizes)
   - [X] DELETE "/api/coffee/:id" - Removes specific product from database identified by their ID.
-  
+### Users
+- [X] POST "/api/register" - Register's a new user with credentials
+- [X] POST "/api/login" - Authenticates email and password
