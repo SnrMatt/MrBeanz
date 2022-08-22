@@ -1,10 +1,11 @@
 const pg = require("pg");
+require("dotenv").config;
 const client = new pg.Pool({
-  host: "45.77.164.242",
-  port: 5432,
-  user: "axios",
-  database: "mrbeanz",
-  password: "Matt2144!",
+  host: process.env.dbhostname,
+  port: process.env.dbport,
+  user: process.env.dbuser,
+  database: process.env.dbname,
+  password: process.env.dbpassword,
   max: 20,
   ssl: false,
   idleTimeoutMillis: 30000,

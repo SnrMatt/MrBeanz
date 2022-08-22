@@ -67,9 +67,8 @@ const loginUser = async (req, res) => {
   );
   if (isUserCredentials === true) {
     //Generate JWT TOKEN
-
     let token = jwt.sign(
-      { context: { userID: user.id, role:["user"] } },
+      { context: { userID: user.id, role: ["user"], email: user.email } },
       process.env.SECRET_KEY,
       { expiresIn: "2h" }
     );
@@ -79,8 +78,54 @@ const loginUser = async (req, res) => {
   }
 };
 
-const updateUserAddress = (req, res) => {
-  res.send({ message: "Updated address" });
+const updateUserAddress = async (req, res) => {
+  //Check if user already had address
+  let addressExists = await query(
+    "SELECT user_id FROM user_address WHERE user_id = $1",
+    [req.body.user.context.userID]
+  );
+
+  if (addressExists.rows[0] !== undefined) {
+    //update address
+    await query(
+      `
+    UPDATE user_address 
+    SET
+      address_line = $1,
+      city = $2,
+      country = $3,
+      state = $4,
+      zipcode = $5
+      WHERE user_id = $6 
+    `,
+      [
+        req.body.address_line,
+        req.body.city,
+        req.body.country,
+        req.body.state,
+        req.body.zipcode,
+        req.body.user.context.userID,
+      ]
+    );
+    res.send({ message: "User address updated" });
+    return;
+  }
+  //create new address entry
+  await query(
+    `INSERT INTO 
+  user_address (user_id, address_line, city, country, state,zipcode)
+  VALUES ($1,$2,$3,$4,$5, $6) 
+  `,
+    [
+      req.body.user.context.userID,
+      req.body.address_line,
+      req.body.city,
+      req.body.country,
+      req.body.state,
+      req.body.zipcode,
+    ]
+  );
+  res.send({ message: "User address updated" });
 };
 
 module.exports = {
