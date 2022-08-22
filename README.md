@@ -4,7 +4,7 @@ Coffee bean ecommerce demo
 
 ## Relational Structure for Database
 
-![image](https://user-images.githubusercontent.com/80737126/185534606-25c57b63-a8a9-410f-8fea-acd05b291095.png)
+![image](https://user-images.githubusercontent.com/80737126/185672181-2dcbf2da-e50a-4aef-a072-fcfe77f7e621.png)
 
 ## REST API
 
